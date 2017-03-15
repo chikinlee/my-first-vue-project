@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <h1 v-text="title"></h1>
+    <input v-model="newItem" @keyup.13="addNew">
     <ul v-for="item in items">
       <li :class="{finish: item.isFinished}" @click="toggleClick(item)">
         {{item.label}}
@@ -10,26 +11,27 @@
 </template>
 
 <script>
+//  import store from '../store'
   export default {
     name: 'TodoList',
     data () {
       return {
         title: 'this is a todo list',
-        items: [
-          {
-            label: 'coding',
-            isFinished: false
-          },
-          {
-            label: 'walking',
-            isFinished: true
-          }
-        ]
+        items: [],
+        newItem: ''
       }
     },
     methods: {
       toggleClick: function (item) {
         item.isFinished = !item.isFinished
+      },
+      addNew: function () {
+        this.items.push({
+          label: this.newItem,
+          isFinished: false
+        })
+        this.newItem = ''
+//        store.save(this.items)
       }
     }
   }
@@ -47,7 +49,7 @@
   }
 
   .finish {
-    text-decoration: underline;
+    text-decoration: line-through;
   }
 
   li {
