@@ -61,7 +61,6 @@
             list:[],
             count: 0,
           }
-
       },
     computed: {
       Done () {
@@ -71,22 +70,43 @@
               this.list[i].status == true ? ++count:'';
           }
           this.count=count;
+        if (count == length || length == 0){
+            return true
+        }else {
+            return false
+        }
       }
     },
     methods: {
       addTodos: function () {
-
+        let todoStr = this.todos;
+          if(todoStr == ""){
+              return;
+          }else if (this.checkRepet(todoStr)){
+            return;
+          }
+          let item={
+              status: false,
+            content: todoStr
+          }
+        this.list.push(item);
       },
-      finished: function () {
-
+      finished (index) {
+        console.log(this)
       },
-      remove: function () {
-
+      remove (index) {
+        console.log(this)
       },
-      restore: function (index) {
-
+      restore (index) {
+        console.log(this)
       },
-
+      checkRepet (todoStr) {
+         for (todo in this.list){
+             if (this.list[todo].todos == todoStr){
+                 return true
+             }
+         }
+      }
 
     }
   }
