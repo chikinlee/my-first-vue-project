@@ -6,8 +6,13 @@
 </template>
 
 <script>
+  import Login from "./components/Login.vue"
+  import Hello from "./components/Hello.vue"
 export default {
-  name: 'app'
+  components: {
+      Login,
+      Hello
+  }
 }
 </script>
 
