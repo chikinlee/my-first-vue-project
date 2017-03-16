@@ -55,8 +55,39 @@
   export default{
       data () {
           return{
-              name:"Molunerfinn"
+            name:"chikinlee",
+            todos: '',
+            activeName: 'first',
+            list:[],
+            count: 0,
           }
+
+      },
+    computed: {
+      Done () {
+          let count = 0;
+          let length = this.list.length;
+          for (let i in this.list){
+              this.list[i].status == true ? ++count:'';
+          }
+          this.count=count;
       }
+    },
+    methods: {
+      addTodos: function () {
+
+      },
+      finished: function () {
+
+      },
+      remove: function () {
+
+      },
+      restore: function (index) {
+
+      },
+
+
+    }
   }
 </script>

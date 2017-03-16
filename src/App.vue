@@ -2,14 +2,17 @@
   <div id="app">
     <img src="./assets/logo.png">
     <Login></Login>
+    <TodoList></TodoList>
   </div>
 </template>
 
 <script>
   import Login from "./components/Login.vue"
+  import TodoList from "./components/TodoList.vue"
 export default {
   components: {
-      Login
+      Login,
+    TodoList
   }
 }
 </script>
