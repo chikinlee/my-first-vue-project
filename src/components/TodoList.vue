@@ -105,7 +105,7 @@
           this.todos= "";
       },
       finished (index) {
-          this.$set(this.list[index],"status",true);
+          this.$set(this.list[index],"status",true);//设置对象的属性。如果对象是响应式的，确保属性被创建后也是响应式的，同时触发视图更新。这个方法主要用于避开 Vue 不能检测属性被添加的限制。(vue api原话)
           this.$message({
               type: 'success',
               message: '任务完成',
