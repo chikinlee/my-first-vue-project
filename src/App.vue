@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <Login></Login>
+    <!--<Login></Login>-->
     <TodoList></TodoList>
   </div>
 </template>
@@ -11,7 +11,7 @@
   import TodoList from "./components/TodoList.vue"
 export default {
   components: {
-      Login,
+//      Login,
     TodoList
   }
 }
