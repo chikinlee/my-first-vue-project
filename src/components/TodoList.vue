@@ -4,7 +4,7 @@
       <span>
         欢迎：{{name}}！你的待办事项是：
       </span>
-      <el-input placeholder="请输入待办事项" v-model="todos" @keyup.enter.native="addTodos"></el-input>
+      <el-input class="txt" placeholder="请输入待办事项" v-model="todos" @keyup.enter.native="addTodos"></el-input>
       <el-tabs v-model="activeName">
 
         <el-tab-pane label="待办事项" name="first">
@@ -81,8 +81,20 @@
       addTodos: function () {
         let todoStr = this.todos;
           if(todoStr == ""){
+            this.$message({
+              type: 'error',
+              message: '不可添加空任务',
+              showClose: true,
+              duration: 1000
+            })
               return;
           }else if (this.checkRepet(todoStr)){
+            this.$message({
+              type: 'error',
+              message: '不可添加重复的任务',
+              showClose: true,
+              duration: 1000
+            })
             return;
           }
           let item={
@@ -90,19 +102,38 @@
             content: todoStr
           }
         this.list.push(item);
+          this.todos= "";
       },
       finished (index) {
-        console.log(this)
+          this.$set(this.list[index],"status",true);//设置对象的属性。如果对象是响应式的，确保属性被创建后也是响应式的，同时触发视图更新。这个方法主要用于避开 Vue 不能检测属性被添加的限制。(vue api原话)
+          this.$message({
+              type: 'success',
+              message: '任务完成',
+            showClose: true,
+            duration: 1000
+          })
       },
       remove (index) {
-        console.log(this)
+        this.list.splice(index,1)
+        this.$message({
+          message: '任务删除',
+          showClose: true,
+          duration: 1000
+        })
       },
       restore (index) {
-        console.log(this)
+        this.$set(this.list[index],"status",false);
+        this.$message({
+          type: 'success',
+          message: '任务还原',
+          showClose: true,
+          duration: 1000
+        })
       },
       checkRepet (todoStr) {
+          let todo=0
          for (todo in this.list){
-             if (this.list[todo].todos == todoStr){
+             if (this.list[todo].content == todoStr){
                  return true
              }
          }
@@ -111,3 +142,26 @@
     }
   }
 </script>
+<style scoped>
+.txt {
+  margin: 20px auto;
+}
+.todo-list {
+  width: 100%;
+  margin-top: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eee;
+  overflow: hidden;
+  text-align: left;
+}
+.item {
+  font-size: 20px;
+}
+.finished{
+  text-decoration: line-through;
+  color: #ddd;
+}
+.pull-right {
+  float: right;
+}
+</style>

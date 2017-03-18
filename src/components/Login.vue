@@ -9,15 +9,17 @@
           v-model="account"
           placeholder="YOUR NAME"
           type="text"
-          class="txt">
+          class="txt"
+          @keyup.enter.native="loginTodo">
         </el-input>
         <el-input
           v-model="password"
           placeholder="YOUR PASSWORD"
           type="password"
-          class="txt">
+          class="txt"
+          @keyup.enter.native ="loginTodo">
         </el-input>
-        <el-button type="primary" class="btn">LOGIN IN</el-button>
+          <el-button type="primary" class="btn" @click="loginTodo">LOGIN IN</el-button>
       </el-row>
     </el-col>
   </el-row>
@@ -31,6 +33,11 @@
       return {
         account: '',
         password: ''
+      }
+    },
+    methods: {
+      loginTodo () {
+          this.$router.push('/todolist')
       }
     }
   }
