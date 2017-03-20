@@ -1,4 +1,4 @@
-import sequeLize from 'sequelize'
+const sequeLize = require('sequelize')
 
 const todoList=new sequeLize('mysql://localhost:3306/todolist',{
   define: {
@@ -6,5 +6,5 @@ const todoList=new sequeLize('mysql://localhost:3306/todolist',{
   }
 })
 module.exports = {
-  Todolist // 将Todolist暴露出接口方便Model调用
+  todoList // 将todolist暴露出接口方便Model调用
 }
