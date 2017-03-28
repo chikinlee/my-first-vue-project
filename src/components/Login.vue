@@ -23,7 +23,7 @@
   </el-row>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
 
   export default {
     name: 'Login',
@@ -32,22 +32,51 @@
         account: '',
         password: ''
       }
+    },
+    methods: {
+      loginToDo(){
+        let obj = {
+          name: this.account,
+          password: this.password
+        }
+        this.$http.post('/auth/user', obj)
+          .then((res) => {
+            if(res.data.success){
+            sessionStorage.setItem('demo-token', res.data.token);
+            this.$message({
+              type: 'success',
+              message: '登录成功'
+            });
+            this.$router.push('/todolist')
+        }else {
+                this.$message.error(res.data.info);
+                sessionStorage.setItem('demo-token',null);
+            }
+      },(err)=>{
+            this.$message.error('请求错误!');
+            sessionStorage.setItem('demo-token',null);
+          }
+      )
+      }
     }
   }
 </script>
 
 <style scoped>
-.content{
-  padding: 16px;
-}
-.title{
-  font-size: 28px;
-}
-.txt{
-  margin: 12px 0;
-}
-.btn{
-  width: 100%;
-  margin-top: 12px;
-}
+  .content {
+    padding: 16px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .txt {
+    margin: 12px 0;
+  }
+
+  .btn {
+    width: 100%;
+    margin-top: 12px;
+  }
 </style>
