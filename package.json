@@ -1,8 +1,8 @@
 {
-  "name": "vue-koa-demo",
+  "name": "my-first-vue-project",
   "version": "1.0.0",
-  "description": "A Vue.js & Koa project",
-  "author": "Molunerfinn <marksz@teamsz.xyz>",
+  "description": "Vue.js & Koa & elementUI",
+  "author": "chikinlee <lizijian365@163.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
