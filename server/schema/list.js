@@ -14,11 +14,11 @@ module.exports = function(sequelize, DataTypes) {
     },
     content: {
       type: DataTypes.CHAR(255),
-      allowNull: true
+      allowNull: false
     },
     status: {
       type: DataTypes.INTEGER(1),
-      allowNull: true
+      allowNull: false
     }
   }, {
     tableName: 'list'
