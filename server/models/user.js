@@ -11,7 +11,6 @@ const getUserById = function* (id){ // 注意是function* 而不是function 对�
       id: id
     }
   });
-
   return userInfo // 返回数据
 }
 
@@ -21,12 +20,12 @@ const getUserByName = function* (name){
       user_name: name
     }
   })
-
   return userInfo
 }
 
 
 
 module.exports = {
-  getUserById  // 导出getUserById的方法，将会在controller里调用
+  getUserById,  // 导出getUserById的方法，将会在controller里调用
+  getUserByName
 }

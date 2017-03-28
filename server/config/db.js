@@ -1,6 +1,6 @@
 const sequeLize = require('sequelize')
 
-const todoList=new sequeLize('mysql://localhost:3306/todolist',{
+const todoList=new sequeLize('mysql://root:admin@localhost:3306/todolist',{
   define: {
     timestamps: false // 取消Sequelzie自动给数据表加入时间戳（createdAt以及updatedAt）
   }
