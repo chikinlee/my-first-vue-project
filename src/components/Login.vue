@@ -36,7 +36,7 @@
       }
     },
     methods: {
-      loginToDo(){
+      loginTodo(){
         let obj = {
           name: this.account,
           password: this.password

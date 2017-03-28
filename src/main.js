@@ -3,7 +3,6 @@
 import Vue from 'vue'
 import App from './App'
 import ElementUI from 'element-ui'
-import router from './router'
 import Axios from 'axios'
 import 'element-ui/lib/theme-default/index.css'
 import vueRouter from 'vue-router'
