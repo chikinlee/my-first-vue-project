@@ -6,6 +6,7 @@
 
 ``` bash
 #第一次在github上写点东西，当做是一个试探吧，毕竟在vue方面是个新手，边学习，也是学习开始在github上写一点东西
+#运行方式,nodejs>4.0.0  项目根目录下控制台输入npm run dev 切记要将sql文件导入到自己的数据库,在server->db.js中输入自己数据库的密码
 ```
 
 ####这是一个基于koa+vue2+elementUI开发的TODOlist,<a href="https://molunerfinn.com/Vue+Koa/">demo教程出处</a>,这是本人第一次使用vue写的demo,有什么不对的地方还需要大家多多指教,目前还是半成品,我会在学习vue过程中不断完善,最后将它做完,如果有需要尽管拿去,如果喜欢,欢迎点星
