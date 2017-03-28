@@ -4,7 +4,7 @@
       <span>
         欢迎：{{name}}！你的待办事项是：
       </span>
-      <el-input class="txt" placeholder="请输入待办事项" v-model="todos" @keyup.enter.native="addTodos"></el-input>
+      <el-input class="txt" placeholder="请输入待办事项" v-model="todos" @key  up.enter.native="addTodos"></el-input>
       <el-tabs v-model="activeName">
 
         <el-tab-pane label="待办事项" name="first">
@@ -37,6 +37,7 @@
                 </span>
                 <span class="pull-right">
                   <el-button size="small" type="primary" @click="restore(index)">还原</el-button>
+                  <el-button size="small" :plain="true" type="danger" @click="remove(index)">删除</el-button>
                 </span>
               </div>
             </template>
